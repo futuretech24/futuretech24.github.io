@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secret Number Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100px;
+      height: 30px;
+      
+    }
+
+    button {
+
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #calculation {
+      font-size: 12px;
+      color: #999;
+    }
+
+    #secretNumberResult {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Secret Number Calculator</h1>
+  <p>Enter your birthdate in the format of month day (e.g., 5th Dec is 125):</p>
+  <input type="text" id="birthdateInput" placeholder="e.g., 125" />
+  
+  <button onclick="calculateSecretNumber()">Calculate</button>
+  <p id="calculation"></p>
+  <p id="secretNumberResult"></p>
+
+  <script>
+    function calculateSecretNumber() {
+      var birthdate = document.getElementById("birthdateInput").value;
+      var secretNumber = (birthdate ** 3) % 1255;
+      document.getElementById("calculation").innerText = "Calculation: " + birthdate + "^3 % 1255";
+      document.getElementById("secretNumberResult").innerText = "Secret Number: " + secretNumber;
+    }
+  </script>
+</body>
+</html>
